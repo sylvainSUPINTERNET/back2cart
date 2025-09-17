@@ -1,4 +1,4 @@
-
+<link href="{{ 'daisyui.css' | asset_url}}" rel="stylesheet" type="text/css" />
 <script src="{{ 'tailwind.js' | asset_url }}" defer></script>
 <script src="{{ 'main.js' | asset_url }}" defer></script>
 
@@ -9,8 +9,29 @@
 {% if selected_variant.available %}
   <p>✅ En stock : {{ selected_variant.inventory_quantity }}</p>
 {% else %}
-  <div class="bg-red-900">
-    <button id="back2cart-btn">🔔 Notify me</button>
+  <div>
+    <button class="btn btn-secondary" onclick="my_modal_1.showModal()">Open Dialog</button>
+
+    <button id="back2cart-btn" type="button" 
+      class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl
+            focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800
+            font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+      🔔 Notify me
+    </button>
+    
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
   </div>
 {% endif %}
 
