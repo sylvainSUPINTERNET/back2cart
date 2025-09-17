@@ -1,0 +1,28 @@
+
+<script src="{{ 'tailwind.js' | asset_url }}" defer></script>
+<script src="{{ 'main.js' | asset_url }}" defer></script>
+
+{% comment %} TODO location {% endcomment %}
+
+{% assign selected_variant = product.selected_or_first_available_variant %}
+
+{% if selected_variant.available %}
+  <p>✅ En stock : {{ selected_variant.inventory_quantity }}</p>
+{% else %}
+  <div class="bg-red-900">
+    <button id="back2cart-btn">🔔 Notify me</button>
+  </div>
+{% endif %}
+
+{% comment %} {% assign total_stock = 0 %}
+{% for variant in product.variants %}
+  {% assign total_stock = total_stock | plus: variant.inventory_quantity %}
+{% endfor %}
+
+<div id="back2cart-widget">
+  {% if total_stock > 0 %}
+    <p class="stock-msg">✅ En stock : {{ total_stock }} articles</p>
+  {% else %}
+    <button class="back2cart-btn">🔔 Me prévenir quand dispo</button>
+  {% endif %}
+</div> {% endcomment %}
