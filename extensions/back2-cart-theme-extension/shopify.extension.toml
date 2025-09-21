@@ -1,3 +1,7 @@
 name = "back2-cart-theme-extension"
 type = "theme"
 uid = "8e0ca0cc-dc05-3d65-beda-ffb402044d5dacef6f08"
+
+
+[settings]
+icon = "assets/preview.png"

@@ -2,6 +2,10 @@
 <script src="{{ 'tailwind.js' | asset_url }}" defer></script>
 <script src="{{ 'main.js' | asset_url }}" defer></script>
 
+<style>
+  {{ block.settings.heading_font | font_face }}
+</style>
+
 {% comment %} TODO location {% endcomment %}
 
 {% assign selected_variant = product.selected_or_first_available_variant %}
@@ -10,27 +14,89 @@
   <p>✅ En stock : {{ selected_variant.inventory_quantity }}</p>
 {% else %}
   <div>
-    <button class="btn btn-secondary" onclick="my_modal_1.showModal()">Open Dialog</button>
 
-    <button id="back2cart-btn" type="button" 
-      class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl
-            focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800
-            font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-      🔔 Notify me
-    </button>
-    
-    <dialog id="my_modal_1" class="modal">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click the button below to close</p>
-        <div class="modal-action">
-          <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
-          </form>
+    <div class="h-[{{ block.settings.block_height }}em] w-[{{ block.settings.block_width }}%]">
+        <button type="button"
+          {% comment %} onclick="my_modal_3.showModal()" {% endcomment %}
+          onclick="my_modal_7.checked = true"
+          class="
+          flex
+          items-center 
+          justify-{{ block.settings.text_position }}
+          bg-[{{ block.settings.colour }}] 
+          text-[{{ block.settings.font_size }}px] 
+          w-[100%]
+          h-[100%]
+          rounded-[{{ block.settings.border_radius }}px]
+          font-[{{ block.settings.font_weight }}]
+          text-[{{ block.settings.text-colour }}]
+          pb-[{{ block.settings.padding_bottom }}px]
+          pt-[{{ block.settings.padding_top }}px]
+          pl-[{{ block.settings.padding_left }}px]
+          pr-[{{ block.settings.padding_right }}px]
+          mb-[{{ block.settings.margin_bottom }}px]
+          mt-[{{ block.settings.margin_top }}px]
+          mr-[{{ block.settings.margin_right }}px]
+          ml-[{{ block.settings.margin_left }}px]
+          "
+          style="font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};"
+          aria-disabled="true">
+          <span class="
+              {% comment %} pb-[{{ block.settings.txt_padding_bottom }}px]
+              pt-[{{ block.settings.txt_padding_top }}px]
+              pl-[{{ block.settings.txt_padding_left }}px]
+              pr-[{{ block.settings.txt_padding_right }}px] {% endcomment %}
+              mb-[{{ block.settings.txt_margin_bottom }}px]
+              mt-[{{ block.settings.txt_margin_top }}px]
+              mr-[{{ block.settings.txt_margin_right }}px]
+              ml-[{{ block.settings.txt_margin_left }}px]
+            ">
+              {{ block.settings.text }} 
+          </span>
+        </button> 
+    </div>
+
+    <!-- DIALOG MODAL -->
+    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+    <div class="modal" role="dialog">
+      <div class="modal-box relative rounded-2xl  w-full max-w-4xl">
+        
+        <div class="flex justify-between items-center mb-4">
+          <p class="text-2xl text-gray-800 font-medium">Notify Me When Available</p>
+          <label for="my_modal_7" class="cursor-pointer text-gray-500 hover:text-gray-700">✕</label>
         </div>
+
+        <div class="flex flex-col gap-6">
+          <div>
+            <button class="btn btn-outline btn-primary w-full mb-2">Notify me by Email</button>
+            <p class="text-sm text-gray-500">We'll send you an email when this product is back in stock.</p>
+          </div>
+          <div>
+            <button class="btn btn-outline btn-secondary w-full mb-2">Notify me by SMS</button>
+            <p class="text-sm text-gray-500">We'll send you a text message when this product is back in stock.</p>
+          </div>
+          <div>
+            <button class="btn btn-outline btn-accent w-full mb-2">Notify me by WhatsApp</button>
+            <p class="text-sm text-gray-500">We'll send you a WhatsApp message when this product is back in stock.</p>
+          </div>
+        </div>
+
       </div>
-    </dialog>
+
+      <!-- Backdrop -->
+      <label class="modal-backdrop" for="my_modal_7">Close</label>
+    </div>
+
+    {% comment %} <dialog id="my_modal_3" class="modal">
+      <div class="modal-box">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click on ✕ button to close</p>
+        <label className="modal-backdrop" htmlFor="my_modal_3">Close</label>
+      </div>
+    </dialog> {% endcomment %}
 
   </div>
 {% endif %}

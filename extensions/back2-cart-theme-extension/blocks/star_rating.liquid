@@ -12,12 +12,180 @@
 
 {% schema %}
 {
-  "name": "Star Rating",
+  "name": "Notify Me - Button",
   "target": "section",
   "settings": [
-    { "type": "product", "id": "product", "label": "product", "autofill": true },
-    { "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" },
+    { "type": "product", "id": "product", "label": "Product to track", "autofill": true },
+    {
+    "type": "text",
+    "id": "text",
+    "label": "Button Text",
+    "default": "Notify Me"
+    },
+    { "type": "color", "id": "colour", "label": "Background Color", "default": "#000000" },
+    { "type": "color", "id": "text-colour", "label": "Text Color", "default": "#ffffffff" },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text Position",
+      "options": [
+        { "value": "start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "block_width",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Button width",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "block_height",
+      "label": "Button height (in em)",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 0
+    },
+    {
+      "type": "range", 
+      "id": "font_weight",
+      "min": 0,
+      "max": 1000,
+      "step": 100,
+      "unit": "w",
+      "label": "Font weight",
+      "default":0  
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Margin top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_left",
+      "label": "Margin left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_right",
+      "label": "Margin right",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Padding left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Padding right",
+      "default": 0
+    
+    },
+    {
+      "type": "number",
+      "id": "txt_margin_bottom",
+      "label": "Text margin bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_margin_top",
+      "label": "Text margin top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_margin_left",
+      "label": "Text margin left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_margin_right",
+      "label": "Text margin right",
+      "default": 0
+    }
   ]
 }
 {% endschema %}
 
+
+{% comment %} {
+      "type": "number",
+      "id": "txt_padding_left",
+      "label": "Text padding left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_padding_right",
+      "label": "Text padding right",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_padding_top",
+      "label": "Text padding top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "txt_padding_bottom",
+      "label": "Text padding bottom",
+      "default": 0
+    }, {% endcomment %}
