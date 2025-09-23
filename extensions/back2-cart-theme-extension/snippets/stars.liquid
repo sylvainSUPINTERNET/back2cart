@@ -1,6 +1,8 @@
 <link href="{{ 'daisyui.css' | asset_url}}" rel="stylesheet" type="text/css" />
+<script src="{{ 'framer-motion.js' | asset_url }}" defer></script>
 <script src="{{ 'tailwind.js' | asset_url }}" defer></script>
 <script src="{{ 'main.js' | asset_url }}" defer></script>
+
 
 <style>
   {{ block.settings.heading_font | font_face }}
@@ -61,18 +63,19 @@
     <div class="modal" role="dialog">
       <div class="modal-box relative rounded-2xl  w-full max-w-4xl">
         
-        <div class="flex justify-between items-center text">
+        <div class="flex justify-between items-center text mb-4">
           <p class="text-3xl text-black font-medium tracking-tighter text-center">Notify Me When Available</p>
           <label for="my_modal_7" class="cursor-pointer text-gray-500 hover:text-gray-700">✕</label>
         </div>
 
-        <div class="flex justify-center items-center">
-          <hr class="w-2/4 h-1 mx-auto my-[0.5] bg-gray-100 border-0 rounded-sm dark:bg-gray-700">
+        <div class="flex justify-center">
+          <div class="h-[0.1em] bg-gray-200/50 mt-4 mb-4 w-2/4 max-auto">
+          </div>
         </div>
 
 
-        <form class="max-w-sm mx-auto">
-          <div class="mb-5">
+        <form class="max-w-sm mx-auto mt-5" id="subscribe-form">
+          <div class="mb-1 mt-2">
             <label for="email" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white">Email</label>
             <input type="email" id="email" 
               class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
@@ -81,24 +84,9 @@
                required />
           </div> 
           <div class="flex justify-center mt-5">
-            <button type="submit" class="text-[{{ block.settings.text-colour }}] bg-[{{ block.settings.colour }}] text-xl w-full h-[3em] rounded-md shadow-md">Submit</button>
+            <button type="submit" class="text-[{{ block.settings.text-colour }}] bg-[{{ block.settings.colour }}] text-xl w-full h-[3em] rounded-md shadow-md">Get Notify</button>
           </div>
-        </form>        
-        {% comment %} <div class="flex flex-col gap-6">
-          <div>
-            <button class="btn btn-outline btn-primary w-full mb-2">Notify me by Email</button>
-            <p class="text-sm text-gray-500">We'll send you an email when this product is back in stock.</p>
-          </div>
-          <div>
-            <button class="btn btn-outline btn-secondary w-full mb-2">Notify me by SMS</button>
-            <p class="text-sm text-gray-500">We'll send you a text message when this product is back in stock.</p>
-          </div>
-          <div>
-            <button class="btn btn-outline btn-accent w-full mb-2">Notify me by WhatsApp</button>
-            <p class="text-sm text-gray-500">We'll send you a WhatsApp message when this product is back in stock.</p>
-          </div>
-        </div> {% endcomment %}
-
+        </form>
       </div>
 
       <!-- Backdrop -->
