@@ -17,6 +17,7 @@
     "prisma": "prisma",
     "graphql-codegen": "graphql-codegen",
     "vite": "vite"
+    
   },
   "type": "module",
   "engines": {
